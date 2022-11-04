@@ -1,0 +1,183 @@
+Practice Problems with if & else
+
+1. Write a program that reads 5 Random 3 Digit values and then outputs the minimum and the maximum value
+
+#! /bin/bash -x
+
+read -p "Enter a 1st number:"  a
+maximum=$a
+minimum=$a
+read -p "Enter a 2nd number:"  b
+if [ $b -gt $maximum ]
+then
+    maximum=$b
+fi
+
+if [ $b -lt  $minimum ]
+then
+    minimum=$b
+fi
+
+read -p "Enter third number:" c
+
+if [  $c -gt $maximum ]
+then
+  maximum=$c
+fi
+
+read -p "Enter the fourth Number:"  d
+if [ $c -lt  $minimum ]
+then
+    minimum=$c
+fi
+if [  $d -gt $maximum ]
+then
+  maximum=$d
+fi
+
+if [ $d -lt  $minimum ]
+then
+    minimum=$d
+fi
+
+read -p "Enter the fifth number:"  e
+if [  $e -gt $maximum ]
+then
+  maximum=$e
+fi
+
+if [ $e -lt  $minimum ]
+then
+    minimum=$e
+fi
+
+echo "Maximum:"$maximum
+echo  "Minimum:"$minimum
+
+2.Write a program that takes day and month from the command line and prints true if day of month is between March 20 and June 20, false otherwise.
+
+#! /bin/bash -x
+
+read -p " Enter Date:-" date
+read -p " Enter Month:-" Month
+
+if (( ($Month <= 6 & $date <= 20) ))
+then
+        echo $Month $date "True";
+
+elif (( ($Month >= 3 & $Month < 6) & ($date<31)  ))
+then
+        echo $date $Month "True";
+
+else
+
+        echo "False";
+fi
+
+3. Write a program to simulate a coin flip and print out "Heads" or "Tails" accordingly.
+
+# ! /bin/bash
+result=$(($(($RANDOM%10))%2))
+if [ $result -eq 0 ]
+then
+    echo "heads"
+elif [ $result -eq 1 ]
+then
+    echo "tails"
+fi
+echo "coin filp"
+
+
+
+Practice Problems with if, elif and else
+
+1.Read a single digit number and write the number in word
+
+echo -n "Enter number: "
+read n
+ 
+len=$(echo $n | wc -c)
+len=$(( $len - 1 ))
+ 
+echo "Your number $n in words : "
+for (( i=1; i<=$len; i++ ))
+do
+   # get one digit at a time
+    digit=$(echo $n | cut -c $i)
+   # use case control structure to find digit equivalent in words 
+    case $digit in
+        0) echo -n "zero " ;;
+        1) echo -n "one " ;;
+        2) echo -n "two " ;;
+        3) echo -n "three " ;;
+        4) echo -n "four " ;;
+        5) echo -n "five " ;;
+        6) echo -n "six " ;;
+        7) echo -n "seven " ;;
+        8) echo -n "eight " ;;
+        9) echo -n "nine " ;;
+    esac	
+done
+ 
+# just print a new line
+echo ""
+
+2. Read a Number and Display the week day
+
+day_num=$(date +%u)
+date=$(date +%Y%m%d)
+month=$(date +%m)
+year=$(date +%Y)
+
+if [ $day_num -eq 1 ]
+then
+    for (( h = 2; h <= 31; h ++))
+    do
+        past_month_date=$(date -d "-1 month" +%Y%m$h)
+        echo $past_month_date
+        weekday=$(past_month_date +%a)
+        echo $weekday
+        #if [ $weekday -ne $sunday ]
+        #then
+            #....
+        #fi
+    done
+fi
+
+Practice Problems with case statement
+
+1.Read a single digit number and write the number in word using Case
+
+echo -n "Enter number: "
+read n
+ 
+len=$(echo $n | wc -c)
+len=$(( $len - 1 ))
+ 
+echo "Your number $n in words : "
+for (( i=1; i<=$len; i++ ))
+do
+   # get one digit at a time
+    digit=$(echo $n | cut -c $i)
+   # use case control structure to find digit equivalent in words 
+    case $digit in
+        0) echo -n "zero " ;;
+        1) echo -n "one " ;;
+        2) echo -n "two " ;;
+        3) echo -n "three " ;;
+        4) echo -n "four " ;;
+        5) echo -n "five " ;;
+        6) echo -n "six " ;;
+        7) echo -n "seven " ;;
+        8) echo -n "eight " ;;
+        9) echo -n "nine " ;;
+    esac	
+done
+ 
+# just print a new line
+echo ""
+
+
+
+
+
